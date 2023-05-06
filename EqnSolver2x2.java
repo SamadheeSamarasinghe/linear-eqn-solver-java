@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 //05-07-2023 Samadhee Samarasinghe
 
-public class LinearEqnSolver {
+public class EqnSolver2x2 {
     // Method to calculate the determinant of a 2x2 matrix 
     public static double det(double[][] m) {
         return (m[0][0] * m[1][1]) - (m[0][1] * m[1][0]);

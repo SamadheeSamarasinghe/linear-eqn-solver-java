@@ -1,6 +1,28 @@
 import java.util.Scanner;
 
 public class LinearEqnSolver {
+    // Method to calculate the determinant of a 2x2 matrix 
+    public static double det(double[][] m) {
+        return (m[0][0] * m[1][1]) - (m[0][1] * m[1][0]);
+    }
+
+    // Method to replace a column in a matrix 
+    public static double[][] replaceCol(double[][] m, double[] col, int colIndex) {
+        //Declaring a multi-dimensional array to store the matrix with replaced columns
+        double[][] result = new double[m.length][m.length];
+        //Iterating through the columns and replacing with constants
+        for (int i = 0; i < m.length; i++) {
+            for (int j = 0; j < m.length; j++) {
+                if (j == colIndex) {
+                    result[i][j] = col[i];
+                } else {
+                    result[i][j] = m[i][j];
+                }
+            }
+        }
+        return result;
+    }
+
     public static void main(String[] args) {
         // Declaring a multi-dimensional(2x2) array to store coefficients
         double[][] m = new double[2][2];
@@ -66,24 +88,23 @@ public class LinearEqnSolver {
             System.out.println();
         }
 
-        // Calculating the determinant of the coefficient matrix
-        double detA = (m[0][0] * m[1][1]) - (m[0][1] * m[1][0]);
+        // Calculating determinant of the coefficient matrix using the det method
+        double detA = det(m);
 
         // Applying Cramer's rule
-        // Calculating the determinant by replacing column 1 with the constants
-        double detAx = (c[0] * m[1][1]) - (m[0][1] * c[1]);
+        // Replacing column 1 with the constants using the replaceCol method
+        double detAx = det(replaceCol(m, c, 0));
 
-        // Calculating the determinant by replacing column 2 with the constants
-        double detAy = (m[0][0] * c[1]) - (c[0] * m[1][0]);
+        // Replacing column 2 with the constants using the replaceCol method
+        double detAy = det(replaceCol(m, c, 1));
 
         // Checking if the determinant is non-zero
         if (detA != 0) {
-
             // Calculating the values of variables x and y
             double x = detAx / detA;
             double y = detAy / detA;
 
-            System.out.println("The solution for x and y are: ");
+            System.out.println("The solution for x, y are: ");
             System.out.println("x = " + x);
             System.out.println("y = " + y);
 

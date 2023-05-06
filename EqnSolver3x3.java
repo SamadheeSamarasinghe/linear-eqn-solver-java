@@ -82,7 +82,7 @@ public class EqnSolver3x3 {
         }
 
         // Displaying the coefficients and the constants of the equations
-        System.out.println("Coefficients            Constants");
+        System.out.println("Coefficients                  Constants");
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
                 System.out.print(m[i][j] + "      ");

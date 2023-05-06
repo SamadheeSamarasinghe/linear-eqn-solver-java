@@ -16,11 +16,9 @@ public class LinearEqnSolver {
             // Declaring a string variable to store user input equations
             String eq = sc.nextLine();
 
-            // Splitting 'eq' string variable to extract its coefficient elements to a
-            // separate string array
+            // Splitting 'eq' string variable to extract its coefficient elements to a separate string array
             String[] coefElements = eq.split("[xy]");
-            // Declaring an integer variable to keep track of the current position of the
-            // elements
+            // Declaring an integer variable to keep track of the current position of the elements
             int index = 0;
 
             // Iterating through the columns of the matrix
@@ -48,12 +46,10 @@ public class LinearEqnSolver {
                 }
             }
 
-            // Splitting 'eq' string variable to extract its constant elements to a separate
-            // string array
+            // Splitting 'eq' string variable to extract its constant elements to a separate string array
             String[] constElements = eq.split("=");
             try {
-                // Extracting the constant by parsing the 2nd element of the array and assigning
-                // it to ith index of array c
+                // Extracting the constant by parsing the 2nd element of the array and assigning it to ith index of array c
                 c[i] = Double.parseDouble(constElements[1]);
             } catch (NumberFormatException e) {
                 System.out.println("Equation " + (i + 1) + " contains invalid constant");
@@ -83,7 +79,7 @@ public class LinearEqnSolver {
         // Checking if the determinant is non-zero
         if (detA != 0) {
 
-            // Calculatin the values of variables x and y
+            // Calculating the values of variables x and y
             double x = detAx / detA;
             double y = detAy / detA;
 
